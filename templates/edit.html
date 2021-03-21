@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url( {{ url_for( 'static',filename='img/contact-bg.jpg')}})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Contact Me</h1>
+            <span class="subheading">Have questions? I have answers.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <a href="/login"><button class="btn btn-primary">Goto Admin</button></a>
+        <a href="#"><button class="btn btn-primary">Logout</button></a>
+          <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+        <form name="sentMessage"  action="/edit/{{ sno }}" method='post' id="contactForm" novalidate enctype="multipart/form-data">
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Name</label>
+              <input type="text" class="form-control" placeholder="Title" value="{{post.title}}" name="title" id="title" required data-validation-required-message="Please enter your name.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Email Address</label>
+              <input type="email" name="content" class="form-control"  placeholder="Content" id="content" value="{{ post.content }}" required data-validation-required-message="Please enter your email address.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Phone Number</label>
+              <input type="tel" name="slug" class="form-control" placeholder="Slug" value="{{ post.slug }}" id="slug" required data-validation-required-message="Please enter your phone number.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Message</label>
+              <input type="file" class="form-control" name="image_file" value="{{post.image_file}}" placeholder="Image file" id="image_file"></input>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->
+ {% endblock %}

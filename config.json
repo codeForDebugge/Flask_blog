@@ -1,0 +1,13 @@
+{
+  "params":{
+      "prod_uri":"dont know",
+      "blog_name": "Deep learning",
+      "tag_line": "Liked by Engineers",
+      "user_id": "Enter your email ID",
+      "pass": "Enter your password",
+      "admin": "amit",
+      "admin_pass": "1234"
+
+  }
+
+}
